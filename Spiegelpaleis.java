@@ -1,7 +1,6 @@
 package Weekopdracht003;
 
-//attractie 3
-public class Spiegelpaleis extends Attractie {
+public class Spiegelpaleis extends Attractie{
 
 	Spiegelpaleis(String nm, double price, int surface) {
 		naam = nm;

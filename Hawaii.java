@@ -1,6 +1,5 @@
 package Weekopdracht003;
 
-//attractie 5
 public class Hawaii extends Attractie{
 	
 	Hawaii(String nm, double price, int surface) {

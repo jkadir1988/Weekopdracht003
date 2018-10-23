@@ -1,6 +1,5 @@
 package Weekopdracht003;
 
-//attractie 6
 public class Ladderklimmen extends Attractie {
 
 	Ladderklimmen(String nm, double price, int surface) {

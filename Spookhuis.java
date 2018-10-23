@@ -1,7 +1,6 @@
 package Weekopdracht003;
 
-//attractie 4
-public class Spookhuis extends Attractie {
+public class Spookhuis extends Attractie{
 
 	Spookhuis(String nm, double price, int surface) {
 		naam = nm;

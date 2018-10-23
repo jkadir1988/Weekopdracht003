@@ -1,7 +1,6 @@
 package Weekopdracht003;
 
-//attractie 1
-public class Botsautoos extends Attractie {
+public class Botsautoos extends Attractie{
 
 	Botsautoos(String nm, double price, int surface) {
 		naam = nm;
@@ -11,5 +10,5 @@ public class Botsautoos extends Attractie {
 
 	void draaien() {
 		zinnetje();
-	}
+	}	
 }
