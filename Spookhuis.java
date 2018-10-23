@@ -10,6 +10,6 @@ public class Spookhuis extends Attractie {
 	}
 
 	void draaien() {
-		System.out.println("de attractie " + naam + " draait");
+		zinnetje();
 	}
 }

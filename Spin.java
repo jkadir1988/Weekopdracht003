@@ -10,6 +10,6 @@ public class Spin extends Attractie {
 	}
 
 	void draaien() {
-		System.out.println("de attractie " + naam + " draait");
+		zinnetje();
 	}
 }

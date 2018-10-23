@@ -9,7 +9,7 @@ public class Attractie {
 	boolean stoppen = true;
 
 	public String toString() {
-		return "De attractie " + naam + " draait. De prijs is: " + prijs + ". De oppervlakte is: " + oppervlakte;
+		return "De attractie " + naam + " draait. De prijs is: " + prijs + " euro. De oppervlakte is: " + oppervlakte;
 	}
 
 	void starten() {
@@ -63,8 +63,11 @@ public class Attractie {
 			}
 		}
 	}
+	void zinnetje() {
+		System.out.println("de attractie " + naam + " draait. De prijs is " + prijs + " euro");
+	}
 
-	static void einde() {
+	void einde() {
 		System.out.println("\nTot de volgende keer!\n");
 	}
 }
