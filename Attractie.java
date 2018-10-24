@@ -4,10 +4,10 @@ public class Attractie {
 	String naam;
 	double prijs;
 	double omzet;
-	double totaleOmzet;
+	static double totaleOmzet;
 	int oppervlakte;
 	int aantalVerkochteKaartjes;
-	int totaalVerkochteKaartjes;
+	static int totaalVerkochteKaartjes;
 
 //	@Override
 //	public String toString() {
@@ -16,8 +16,8 @@ public class Attractie {
 	void zinnetje() {
 		System.out.println("de attractie " + naam + " draait. De prijs is " + prijs + " euro per rit");
 		aantalVerkochteKaartjes++;
-		totaalVerkochteKaartjes=+aantalVerkochteKaartjes;
+		totaalVerkochteKaartjes++;
+		totaleOmzet+=prijs;
 		omzet+=prijs;
-		totaleOmzet+=omzet;
 	}
 }

@@ -7,7 +7,7 @@ public class Kermis {
 	Spin spin = new Spin("SPIN", 2.25, 200);
 	Spiegelpaleis spiegelpaleis = new Spiegelpaleis("SPIEGELPALEIS", 2.75, 300);
 	Spookhuis spookhuis = new Spookhuis("SPOOKHUIS", 3.20, 400);
-	Hawaii hawaii = new Hawaii("HAWAII", 2.90, 500);
+	Hawaii hawaii = new Hawaii("HAWAII", 2.9, 500);
 	Ladderklimmen ladderklimmen = new Ladderklimmen("LADDERKLIMMEN", 5.00, 500);
 	Attractie attractie = new Attractie();
 	Kassa kassa = new Kassa();
@@ -60,6 +60,7 @@ public class Kermis {
 			case "q":
 				stoppen = false;
 				System.out.println("\nTot de volgende keer!\n");
+				System.exit(0);
 				break;
 			default:
 				System.out.println("\nToets een geldige knop aub!");
@@ -78,12 +79,12 @@ public class Kermis {
 	}
 	void totaleOmzet() {
 		System.out.println("Omzet per attractie: ");
-		System.out.println(botsauto.omzet + "€\t" + botsauto.naam);
-		System.out.println(spin.omzet + "€\t" + spin.naam);
-		System.out.println(spiegelpaleis.omzet + "€\t" + spiegelpaleis.naam);
-		System.out.println(spookhuis.omzet+ "€\t" + spookhuis.naam);
-		System.out.println(hawaii.omzet + "€\t" + hawaii.naam);
-		System.out.println(ladderklimmen.omzet+ "€\t" + ladderklimmen.naam);
+		System.out.println("€" + botsauto.omzet + "\t" + botsauto.naam);
+		System.out.println("€" + spin.omzet + "\t" + spin.naam);
+		System.out.println("€" + spiegelpaleis.omzet + "\t" + spiegelpaleis.naam);
+		System.out.println("€" + spookhuis.omzet+ "\t" + spookhuis.naam);
+		System.out.println("€" + hawaii.omzet + "\t" + hawaii.naam);
+		System.out.println("€" + ladderklimmen.omzet+ "\t" + ladderklimmen.naam);
 
 	}
 }
