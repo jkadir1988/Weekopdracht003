@@ -1,23 +1,13 @@
 package Weekopdracht003;
 
+import java.text.DecimalFormat;
+
 public class Attractie {
 	String naam;
-	double prijs;
-	double omzet;
+	double prijs, omzet, kansBelasting;
 	static double totaleOmzet;
-	int oppervlakte;
-	int aantalVerkochteKaartjes;
+	int aantalVerkochteKaartjes, oppervlakte;
 	static int totaalVerkochteKaartjes;
-
-//	@Override
-//	public String toString() {
-//		return "De attractie " + naam + " draait. De prijs is: " + prijs + " euro. De oppervlakte is: " + oppervlakte;
-//	}
-	void zinnetje() {
-		System.out.println("de attractie " + naam + " draait. De prijs is " + prijs + " euro per rit");
-		aantalVerkochteKaartjes++;
-		totaalVerkochteKaartjes++;
-		totaleOmzet+=prijs;
-		omzet+=prijs;
-	}
+	DecimalFormat df = new DecimalFormat("0.00");
+	
 }

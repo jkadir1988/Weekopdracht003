@@ -1,90 +1,106 @@
 package Weekopdracht003;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Kermis {
-	Botsautoos botsauto = new Botsautoos("BOTSAUTO", 2.50, 100);
-	Spin spin = new Spin("SPIN", 2.25, 200);
-	Spiegelpaleis spiegelpaleis = new Spiegelpaleis("SPIEGELPALEIS", 2.75, 300);
-	Spookhuis spookhuis = new Spookhuis("SPOOKHUIS", 3.20, 400);
-	Hawaii hawaii = new Hawaii("HAWAII", 2.9, 500);
-	Ladderklimmen ladderklimmen = new Ladderklimmen("LADDERKLIMMEN", 5.00, 500);
-	Attractie attractie = new Attractie();
+	Botsautoos botsauto = new Botsautoos("Mario Kart Battle", 2.50, 100);
+	Spin spin = new Spin("Amazing Spiderman", 2.25, 200);
+	Spiegelpaleis spiegelpaleis = new Spiegelpaleis("Mirror Dimension", 2.75, 300);
+	Spookhuis spookhuis = new Spookhuis("The Haunted House", 3.20, 400);
+	Hawaii hawaii = new Hawaii("Honolulu Beach", 2.9, 500);
+	Ladderklimmen ladderklimmen = new Ladderklimmen("Stairway To Heaven", 5.00, 500);
+
+	static Attractie attractie = new Attractie();
 	Kassa kassa = new Kassa();
-	
+	Klant klant = new Klant();
+	DecimalFormat df = new DecimalFormat("0.00");
+
 	Scanner sc = new Scanner(System.in);
-	String attractieMenu; 
-	
-	void begin(){
-		System.out.println("Welkom op de Kermis !\n");
-		System.out.println("Op welke attractie wilt u een ritje maken: ");
-		System.out.println("Kies 1 voor " + botsauto.naam);
-		System.out.println("Kies 2 voor " + spin.naam);
-		System.out.println("Kies 3 voor " + spiegelpaleis.naam);
-		System.out.println("Kies 4 voor " + spookhuis.naam);
-		System.out.println("Kies 5 voor " + hawaii.naam);
-		System.out.println("Kies 6 voor " + ladderklimmen.naam);
-		System.out.println("\nKies O om de omzet van de kermis te zien");
-		System.out.println("Kies K om het aantal verkochte kaartje te laten zijn");
-		System.out.println("\nKies Q om de kermis te verlaten");
+	String attractieMenu;
+
+	void begin() {
+		menuAttracties();
 		boolean stoppen = true;
 		while (stoppen) {
 			attractieMenu = sc.nextLine().toLowerCase();
 			switch (attractieMenu) {
 			case "1":
 				botsauto.draaien();
+				menuAttracties();
 				break;
 			case "2":
 				spin.draaien();
+				menuAttracties();
 				break;
 			case "3":
 				spiegelpaleis.draaien();
+				menuAttracties();
 				break;
 			case "4":
 				spookhuis.draaien();
+				menuAttracties();
 				break;
 			case "5":
 				hawaii.draaien();
+				menuAttracties();
 				break;
 			case "6":
 				ladderklimmen.draaien();
+				menuAttracties();
 				break;
 			case "o":
 				totaleOmzet();
 				kassa.totaleOmzet();
+				procentBelasting();
+				menuAttracties();
 				break;
 			case "k":
 				aantalVerkochteKaartjes();
 				kassa.aantalVerkochteKaartjes();
+				menuAttracties();
 				break;
 			case "q":
 				stoppen = false;
-				System.out.println("\nTot de volgende keer!\n");
-				System.exit(0);
+				System.out.println("\nBedankt, " + Klant.naam + "! Tot de volgende keer !");
 				break;
 			default:
 				System.out.println("\nToets een geldige knop aub!");
 			}
 		}
 	}
+
+	void menuAttracties() {
+		System.out.println("Op welke attractie wilt u een ritje maken?");
+		System.out.println("Kies 1 voor " + botsauto.naam + "\tKies 3 voor " + spiegelpaleis.naam + "\tKies 5 voor "
+				+ hawaii.naam);
+		System.out.println(
+				"Kies 2 voor " + spin.naam + "\tKies 4 voor " + spookhuis.naam + "\tKies 6 voor " + ladderklimmen.naam);
+		System.out.println(
+				"\nKies O voor een overzicht van de omzet van de kermis.\nKies K voor de totale kaartenverkoop van de kermis.\nKies Q om de kermis te verlaten.");
+	}
+
 	void aantalVerkochteKaartjes() {
-		System.out.println("Aantal verkochte kaartjes per attractie: ");
+		System.out.println("\nAantal verkochte kaartjes per attractie: ");
 		System.out.println(botsauto.aantalVerkochteKaartjes + "x\t" + botsauto.naam);
 		System.out.println(spin.aantalVerkochteKaartjes + "x\t" + spin.naam);
 		System.out.println(spiegelpaleis.aantalVerkochteKaartjes + "x\t" + spiegelpaleis.naam);
-		System.out.println(spookhuis.aantalVerkochteKaartjes+ "x\t" + spookhuis.naam);
+		System.out.println(spookhuis.aantalVerkochteKaartjes + "x\t" + spookhuis.naam);
 		System.out.println(hawaii.aantalVerkochteKaartjes + "x\t" + hawaii.naam);
-		System.out.println(ladderklimmen.aantalVerkochteKaartjes+ "x\t" + ladderklimmen.naam);
+		System.out.println(ladderklimmen.aantalVerkochteKaartjes + "x\t" + ladderklimmen.naam);
+	}
+
+	void totaleOmzet() {
+		System.out.println("\nOmzet per attractie: ");
+		System.out.println("€" + df.format(botsauto.omzet) + "\t\t" + botsauto.naam);
+		System.out.println("€" + df.format(spin.omzet) + "\t\t" + spin.naam);
+		System.out.println("€" + df.format(spiegelpaleis.omzet) + "\t\t" + spiegelpaleis.naam);
+		System.out.println("€" + df.format(spookhuis.omzet) + "\t\t" + spookhuis.naam);
+		System.out.println("€" + df.format(hawaii.omzet) + "\t\t" + hawaii.naam);
+		System.out.println("€" + df.format(ladderklimmen.omzet) + "\t\t" + ladderklimmen.naam); 
 		
 	}
-	void totaleOmzet() {
-		System.out.println("Omzet per attractie: ");
-		System.out.println("€" + botsauto.omzet + "\t" + botsauto.naam);
-		System.out.println("€" + spin.omzet + "\t" + spin.naam);
-		System.out.println("€" + spiegelpaleis.omzet + "\t" + spiegelpaleis.naam);
-		System.out.println("€" + spookhuis.omzet+ "\t" + spookhuis.naam);
-		System.out.println("€" + hawaii.omzet + "\t" + hawaii.naam);
-		System.out.println("€" + ladderklimmen.omzet+ "\t" + ladderklimmen.naam);
-
+	void procentBelasting() {
+		System.out.println("€" + df.format(ladderklimmen.kansSpelBelastingBetalen(ladderklimmen)) + " = 30% over de omzet aan Kans Belasting door attractie " + ladderklimmen.naam + "\n");
 	}
 }
